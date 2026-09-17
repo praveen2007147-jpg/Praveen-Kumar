@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Ordering System</title>
+</head>
+
+<body>
+
+    <h1>🍔 Food Ordering System</h1>
+
+    <h2>Customer Details</h2>
+
+    <label>Name:</label>
+    <input type="text" id="name">
+    <br><br>
+
+    <label>Phone:</label>
+    <input type="text" id="phone">
+    <br><br>
+
+    <h2>Select Food</h2>
+
+    <select id="food">
+        <option value="100">Pizza - ₹100</option>
+        <option value="80">Burger - ₹80</option>
+        <option value="60">Sandwich - ₹60</option>
+        <option value="50">French Fries - ₹50</option>
+        <option value="40">Coffee - ₹40</option>
+    </select>
+
+    <br><br>
+
+    <label>Quantity:</label>
+    <input type="number" id="quantity" value="1" min="1">
+
+    <br><br>
+
+    <button onclick="calculate()">Order Now</button>
+
+    <h2>Order Details</h2>
+
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+
+            var name = document.getElementById("name").value;
+            var food = document.getElementById("food");
+            var foodName = food.options[food.selectedIndex].text;
+            var price = food.value;
+            var quantity = document.getElementById("quantity").value;
+
+            var total = price * quantity;
+
+            document.getElementById("result").innerHTML =
+                "Customer Name: " + name + "<br>" +
+                "Food: " + foodName + "<br>" +
+                "Quantity: " + quantity + "<br>" +
+                "Total Price: ₹" + total + "<br><br>" +
+                "Order Placed Successfully!";
+        }
+    </script>
+
+</body>
+</html>
